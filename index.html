@@ -12,16 +12,22 @@
       Your browser does not support the audio element.
     </audio>
     <button id="music-btn">🔊</button>
-    <canvas id="confetti-canvas"></canvas>
+    <canvas id="confetti-canvas" style="display: none"></canvas>
 
     <!-- Countdown Section -->
-    <div id="countdown-section">
+    <div id="countdown-section" class="countdown">
       <section class="countdown">
         <h2>🎁 Something special is waiting for you...</h2>
         <div id="timer">Loading...</div>
       </section>
     </div>
-
+    <div
+      id="unlock-section"
+      style="display: none; text-align: center; height: 100vh"
+    >
+      <button id="heart-reveal-btn">❤️ Tap to unlock (3)</button>
+      <div id="arrow-animation" style="display: none; font-size: 10rem">💘</div>
+    </div>
     <!-- Main Surprise Content -->
     <div id="main-content" style="display: none">
       <section class="hero">
@@ -32,15 +38,14 @@
         <div class="heart">
           <img src="https://placekitten.com/200/180" alt="Inside Heart" />
         </div>
-      </div>
-
-      <div class="ecg">
-        <div class="ecg-line"></div>
       </div> -->
 
       <section class="gallery">
         <h2>Our Memories</h2>
         <div class="images-container" id="images-container">
+          <div class="heart">
+            <img src="https://placekitten.com/200/180" alt="Inside Heart" />
+          </div>
           <!-- Loaded dynamically -->
         </div>
       </section>
