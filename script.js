@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const timer = document.getElementById('timer');
     const countdownSection = document.getElementById('countdown-section');
     const mainContent = document.getElementById('main-content');
-
+    console.log(countdownDate);
     if (now >= countdownDate) {
       countdownSection.style.display = 'none';
       mainContent.style.display = 'block';
