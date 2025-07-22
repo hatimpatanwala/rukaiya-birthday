@@ -1,41 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday, My Love!</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <canvas id="confetti-canvas"></canvas>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday, My Love!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <audio id="bg-music" loop autoplay>
+      <source src="audio/song.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <button id="music-btn">🔊</button>
+    <canvas id="confetti-canvas"></canvas>
 
-  <section class="hero">
-    <h1>Happy Birthday, My Love 🎉</h1>
-    <p>Today is all about you 💖</p>
-  </section>
-
-  <section class="gallery">
-    <h2>Our Memories</h2>
-    <div class="images-container" id="images-container">
-      <!-- Images auto-loaded from JS -->
+    <!-- Countdown Section -->
+    <div id="countdown-section">
+      <section class="countdown">
+        <h2>🎁 Something special is waiting for you...</h2>
+        <div id="timer">Loading...</div>
+      </section>
     </div>
-  </section>
 
-  <section class="letter">
-    <h2>A Letter For You</h2>
-    <p>
-      My dearest love,<br><br>
-      On this special day, I want you to know how much you mean to me. Your smile lights up my world, and every moment with you is a treasure. Happy Birthday, my forever ❤️<br><br>
-      With all my love,<br>
-      [Your Name]
-    </p>
-  </section>
+    <!-- Main Surprise Content -->
+    <div id="main-content" style="display: none">
+      <section class="hero">
+        <h1>Happy Birthday, My Love 🎉</h1>
+        <p>Today is all about you 💖</p>
+      </section>
+      <!-- <div class="heart-container">
+        <div class="heart">
+          <img src="https://placekitten.com/200/180" alt="Inside Heart" />
+        </div>
+      </div>
 
-  <footer>
-    Made with ❤️ just for you.
-  </footer>
+      <div class="ecg">
+        <div class="ecg-line"></div>
+      </div> -->
 
-  <script src="confetti.js"></script>
-  <script src="script.js"></script>
-</body>
+      <section class="gallery">
+        <h2>Our Memories</h2>
+        <div class="images-container" id="images-container">
+          <!-- Loaded dynamically -->
+        </div>
+      </section>
+
+      <section class="letter">
+        <h2>A Letter For You</h2>
+        <p>
+          My dearest love,<br /><br />
+          On this special day, I want you to know how much you mean to me. Your
+          smile lights up my world, and every moment with you is a treasure.
+          Happy Birthday, my forever ❤️<br /><br />
+          With all my love,<br />
+          [Your Name]
+        </p>
+      </section>
+
+      <section class="video">
+        <h2>A Special Video Just for You 💕</h2>
+        <iframe
+          src="https://drive.google.com/file/d/1ABCDefGhIjKlmn/preview"
+          width="100%"
+          height="480"
+          allow="autoplay"
+          allowfullscreen
+        >
+        </iframe>
+      </section>
+
+      <footer>Made with ❤️ just for you.</footer>
+    </div>
+
+    <script src="confetti.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
