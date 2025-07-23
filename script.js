@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('images-container');
   // const imageList = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg'];
   const imageList = [];
-  for (let i = 1; i < 12; i++) {
+  for (let i = 1; i < 13; i++) {
+    console.log(i);
     const heartContainer = document.createElement('div');
     heartContainer.classList.add('heart');
 
