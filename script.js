@@ -1,17 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
+  var countDownCompleted = false;
   const container = document.getElementById('images-container');
-  const imageList = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg'];
-  // const imageList = [];
-  imageList.forEach((img) => {
+  // const imageList = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg'];
+  const imageList = [];
+  for (let i = 1; i < 12; i++) {
     const heartContainer = document.createElement('div');
     heartContainer.classList.add('heart');
 
     const image = document.createElement('img');
-    image.src = `images/${img}`;
+    image.src = `images/${i}.jpg`;
     image.alt = 'Memory Photo';
     heartContainer.appendChild(image);
     container.appendChild(heartContainer);
-  });
+  }
+  // imageList.forEach((img) => {
+  //   const heartContainer = document.createElement('div');
+  //   heartContainer.classList.add('heart');
+
+  //   const image = document.createElement('img');
+  //   image.src = `images/${img}`;
+  //   image.alt = 'Memory Photo';
+  //   heartContainer.appendChild(image);
+  //   container.appendChild(heartContainer);
+  // });
   const canvas = document.getElementById('confetti-canvas');
   const ctx = canvas.getContext('2d');
 
@@ -23,16 +34,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.addEventListener('resize', resizeCanvas);
   resizeCanvas(); // Initial call
-  const music = document.getElementById('bg-music');
+  const music = document.getElementById('birthday-bg-music');
+  const waitingMusic = document.getElementById('waiting-bg-music');
   const musicBtn = document.getElementById('music-btn');
 
   musicBtn.addEventListener('click', () => {
-    if (music.paused) {
-      music.play();
-      musicBtn.textContent = '🔊';
+    if (countDownCompleted) {
+      if (music.paused) {
+        waitingMusic.pause();
+        music.play();
+        musicBtn.textContent = '🔊';
+      } else {
+        waitingMusic.pause();
+        music.pause();
+        musicBtn.textContent = '🔇';
+      }
     } else {
-      music.pause();
-      musicBtn.textContent = '🔇';
+      if (waitingMusic.paused) {
+        music.pause();
+        waitingMusic.play();
+        musicBtn.textContent = '🔊';
+      } else {
+        music.pause();
+        waitingMusic.pause();
+        musicBtn.textContent = '🔇';
+      }
     }
   });
 
@@ -100,10 +126,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const heartBtn = document.getElementById('heart-reveal-btn');
     const arrowAnim = document.getElementById('arrow-animation');
     const confettiCanvas = document.getElementById('confetti-canvas');
+
     const now = new Date().getTime();
     if (now >= countdownDate) {
+      countDownCompleted = true;
       countdownSection.style.display = 'none';
       unlockSection.style.display = 'block';
+      musicBtn.click();
     }
 
     const interval = setInterval(() => {
@@ -150,5 +179,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  startCountdown('2025-07-29T00:00:00');
+  startCountdown('2025-07-21T00:00:00');
 });
