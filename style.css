@@ -94,6 +94,7 @@ section {
   text-align: center;
   padding: 50px 10px;
   background: #fff5faa3;
+  min-height: auto;
 }
 
 .video iframe {

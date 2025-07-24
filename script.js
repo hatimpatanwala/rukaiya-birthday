@@ -133,7 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
       countDownCompleted = true;
       countdownSection.style.display = 'none';
       unlockSection.style.display = 'block';
-      musicBtn.click();
     }
 
     const interval = setInterval(() => {
@@ -180,5 +179,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  startCountdown('2025-07-21T00:00:00');
+  startCountdown('2025-07-29T00:00:00');
+
+  const unlockAudio = () => {
+    if (countDownCompleted) {
+      waitingMusic.pause();
+      music.play();
+    } else {
+      music.pause();
+      waitingMusic.play();
+    }
+    // Remove listener so it only runs once
+    document.removeEventListener('click', unlockAudio);
+  };
+
+  document.addEventListener('click', unlockAudio);
 });
